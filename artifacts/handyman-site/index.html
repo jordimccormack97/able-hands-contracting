@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>Handyman Contracting Site</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <form
+      name="estimate"
+      netlify
+      netlify-honeypot="website"
+      hidden
+      enctype="multipart/form-data"
+    >
+      <input type="hidden" name="form-name" value="estimate" />
+      <input type="text" name="website" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="zipCode" />
+      <select name="serviceType">
+        <option>Fencing</option>
+        <option>Decks</option>
+        <option>Carpentry</option>
+        <option>Punch List Items</option>
+        <option>Home Repairs</option>
+        <option>Other</option>
+      </select>
+      <textarea name="projectSummary"></textarea>
+      <input type="text" name="source" />
+      <input type="file" name="photos" multiple />
+    </form>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

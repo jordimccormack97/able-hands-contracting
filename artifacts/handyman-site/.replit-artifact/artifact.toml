@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Handyman Contracting Site"
+version = "1.0.0"
+id = "artifacts/handyman-site"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 26044
+
+[services.development]
+run = "pnpm --filter @workspace/handyman-site run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/handyman-site", "run", "build" ]
+publicDir = "artifacts/handyman-site/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "26044"
+BASE_PATH = "/"

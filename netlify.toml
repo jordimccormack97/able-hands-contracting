@@ -1,0 +1,12 @@
+[build]
+  command = "pnpm --filter @workspace/handyman-site build"
+  publish = "artifacts/handyman-site/dist/public"
+
+[build.environment]
+  BASE_PATH = "/"
+  PORT = "5173"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
