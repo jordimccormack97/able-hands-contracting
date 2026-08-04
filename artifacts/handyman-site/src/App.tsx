@@ -113,7 +113,7 @@ function QrLanding({ onContinue }: { onContinue: () => void }) {
     <div className="min-h-screen bg-[#e7e7e7] px-5 py-6 text-[#171717]">
       <div className="mx-auto flex min-h-[calc(100vh-3rem)] max-w-md flex-col justify-between">
         <div>
-          <img src={LOGO_IMAGE} alt="Able Hands Contracting" className="h-36 w-auto object-contain" />
+          <img src={LOGO_IMAGE} alt="Able Hands Contracting" className="h-44 w-auto object-contain" />
           <h1 className="mt-6 text-4xl font-medium leading-tight tracking-[-0.04em]">
             Book your consultation now.
           </h1>
@@ -194,7 +194,7 @@ export default function App() {
       <header className="sticky top-0 z-30 border-b border-black/5 bg-[#e7e7e7]/90 backdrop-blur">
         <div className="relative mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 md:px-6 md:py-5">
           <a href="#home" className="flex min-w-0 items-center gap-3" aria-label="Able Hands Contracting home">
-            <img src={LOGO_IMAGE} alt="Able Hands Contracting" className="h-14 w-auto shrink-0 object-contain md:h-16" />
+            <img src={LOGO_IMAGE} alt="Able Hands Contracting" className="h-16 w-auto shrink-0 object-contain md:h-20" />
             <span className="min-w-0 text-[12px] uppercase tracking-[0.16em] text-black/70 md:text-[15px] md:tracking-[0.18em]">
               Able Hands Contracting
             </span>
@@ -275,7 +275,7 @@ export default function App() {
               <img
                 src={LOGO_IMAGE}
                 alt="Able Hands Contracting"
-                className="h-32 w-auto shrink-0 object-contain sm:h-40 md:h-48"
+                className="h-48 w-auto shrink-0 object-contain sm:h-56 md:h-72 lg:h-80"
                 loading="eager"
               />
               <h1 className="text-5xl font-medium leading-[0.95] tracking-[-0.05em] sm:text-6xl md:text-7xl lg:text-[96px]">
@@ -448,7 +448,7 @@ export default function App() {
           <div className="max-w-2xl mx-auto">
             <Card className="rounded-[2.5rem] shadow-none">
               <CardContent className="p-8 md:p-10">
-                <img src={LOGO_IMAGE} alt="Able Hands Contracting" className="mb-8 h-32 w-auto object-contain" />
+                <img src={LOGO_IMAGE} alt="Able Hands Contracting" className="mb-8 h-44 w-auto object-contain" />
                 <div className="text-[12px] uppercase tracking-[0.28em] text-black/40">Contact</div>
                 <h2 className="mt-4 text-3xl font-medium leading-tight tracking-[-0.04em] sm:text-4xl md:text-5xl">
                   Start your project.
@@ -483,7 +483,7 @@ export default function App() {
       <footer className="border-t border-black/6 bg-[#e7e7e7]">
         <div className="mx-auto flex max-w-7xl flex-col gap-5 px-4 py-8 md:flex-row md:items-center md:justify-between md:px-6">
           <div className="flex items-center gap-4">
-            <img src={LOGO_IMAGE} alt="Able Hands Contracting" className="h-28 w-auto object-contain" />
+            <img src={LOGO_IMAGE} alt="Able Hands Contracting" className="h-40 w-auto object-contain" />
             <div>
               <div className="text-[13px] uppercase tracking-[0.18em] text-black/55">Able Hands Contracting</div>
             </div>
