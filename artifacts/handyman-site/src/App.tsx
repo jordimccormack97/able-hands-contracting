@@ -59,6 +59,13 @@ const PHONE_LINK = "tel:6304871834";
 const EMAIL = "Jordi.mccormack97@gmail.com";
 const SERVICE_AREA = "RTP, Chapel Hill, Durham, Raleigh, Cary (Please inquire about locations outside those listed.)";
 const LOGO_IMAGE = `${import.meta.env.BASE_URL}images/able-hands-logo-trimmed.png`;
+const ANA_IMAGE = `${import.meta.env.BASE_URL}images/ana-schardong.jpg`;
+const JORDI_IMAGE = `${import.meta.env.BASE_URL}images/jordi-mccormack-owner.jpg`;
+
+const contactTeam = [
+  { name: "Ana Schardong", title: "Business Operations Manager", image: ANA_IMAGE },
+  { name: "Jordi McCormack", title: "Owner", image: JORDI_IMAGE },
+];
 
 function scrollToContact() {
   document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
@@ -70,6 +77,10 @@ function scrollToServices() {
 
 function scrollToPortfolio() {
   document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" });
+}
+
+function scrollToContactUs() {
+  document.getElementById("contact-us")?.scrollIntoView({ behavior: "smooth" });
 }
 
 function isMobileViewport() {
@@ -163,6 +174,11 @@ export default function App() {
     scrollToPortfolio();
   }
 
+  function menuScrollToContactUs() {
+    closeMenu();
+    scrollToContactUs();
+  }
+
   useEffect(() => {
     const onResize = () => setIsMobile(isMobileViewport());
     window.addEventListener("resize", onResize);
@@ -232,6 +248,13 @@ export default function App() {
                 onClick={menuScrollToPortfolio}
               >
                 Portfolio
+              </button>
+              <button
+                type="button"
+                className="block w-full rounded-2xl px-4 py-3 text-left text-sm font-medium text-black/70 transition hover:bg-black/5 hover:text-black"
+                onClick={menuScrollToContactUs}
+              >
+                Contact Us
               </button>
               <a
                 href={PHONE_LINK}
@@ -380,6 +403,45 @@ export default function App() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </section>
+
+        <section id="contact-us" className="mx-auto max-w-7xl px-4 py-16 md:px-6 md:py-28">
+          <div>
+            <div className="max-w-3xl">
+              <div className="text-[12px] uppercase tracking-[0.28em] text-black/40">Contact Us</div>
+              <h2 className="mt-4 text-3xl font-medium leading-tight tracking-[-0.04em] sm:text-4xl md:text-6xl">
+                Talk with our team.
+              </h2>
+            </div>
+            <div className="mt-10 grid gap-6 md:mt-14 md:grid-cols-2">
+              {contactTeam.map((person) => (
+                <Card key={person.name} className="overflow-hidden shadow-none">
+                  <div className="grid md:grid-cols-[220px_1fr]">
+                    <div className="relative min-h-[280px] md:min-h-[320px]">
+                      <img
+                        src={person.image}
+                        alt={person.name}
+                        className="absolute inset-0 h-full w-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                    <CardContent className="flex flex-col justify-center p-7 md:p-10">
+                      <div className="text-2xl font-medium tracking-[-0.03em] md:text-3xl">{person.name}</div>
+                      <div className="mt-3 text-sm uppercase tracking-[0.18em] text-black/40">
+                        {person.title}
+                      </div>
+                      <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                        <Button className="w-full sm:w-auto" onClick={scrollToContact}>Place Job Request</Button>
+                        <Button asChild className="w-full sm:w-auto bg-[#1f8a4c] text-white hover:bg-[#18743f]">
+                          <a href={PHONE_LINK}>Call {PHONE}</a>
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </div>
+                </Card>
+              ))}
+            </div>
           </div>
         </section>
 
