@@ -68,6 +68,10 @@ function scrollToServices() {
   document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
 }
 
+function scrollToPortfolio() {
+  document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" });
+}
+
 function isMobileViewport() {
   return window.innerWidth < 768;
 }
@@ -154,6 +158,11 @@ export default function App() {
     scrollToServices();
   }
 
+  function menuScrollToPortfolio() {
+    closeMenu();
+    scrollToPortfolio();
+  }
+
   useEffect(() => {
     const onResize = () => setIsMobile(isMobileViewport());
     window.addEventListener("resize", onResize);
@@ -217,6 +226,13 @@ export default function App() {
               >
                 List of Services
               </button>
+              <button
+                type="button"
+                className="block w-full rounded-2xl px-4 py-3 text-left text-sm font-medium text-black/70 transition hover:bg-black/5 hover:text-black"
+                onClick={menuScrollToPortfolio}
+              >
+                Portfolio
+              </button>
               <a
                 href={PHONE_LINK}
                 className="block rounded-2xl px-4 py-3 text-sm font-medium text-black/70 transition hover:bg-black/5 hover:text-black"
@@ -259,7 +275,7 @@ export default function App() {
         <section className="mx-auto max-w-7xl px-4 pb-8 md:px-6 md:pb-12">
           <div className="grid gap-px overflow-hidden rounded-[2rem] bg-black/6 md:grid-cols-3">
             {[
-              ["Work", "Repairs, builds, and installs for homes and outdoor spaces."],
+              ["Portfolio", "Repairs, builds, and installs for homes and outdoor spaces."],
               ["Process", "Clear scope, scheduling, and follow-up."],
               ["Service area", "Chapel Hill, Durham, Raleigh, Cary, and nearby areas."],
             ].map(([title, desc]) => (
@@ -293,33 +309,34 @@ export default function App() {
           </div>
         </section>
 
-        <section id="work" className="mx-auto max-w-7xl px-4 py-16 md:px-6 md:py-28">
+        <section id="portfolio" className="mx-auto max-w-7xl px-4 py-16 md:px-6 md:py-28">
           <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <div>
-              <div className="text-[12px] uppercase tracking-[0.28em] text-black/40">Past Work</div>
+              <div className="text-[12px] uppercase tracking-[0.28em] text-black/40">Portfolio</div>
               <h2 className="mt-4 text-3xl font-medium leading-tight tracking-[-0.04em] sm:text-4xl md:text-6xl">
-                Past work.
+                Portfolio.
               </h2>
             </div>
           </div>
 
-          <div className="mt-10 grid gap-6 md:mt-14 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-10 grid auto-rows-[220px] gap-3 md:mt-14 md:grid-cols-4 md:auto-rows-[260px]">
             {work.map((item, i) => (
-              <Card key={i} className="overflow-hidden shadow-none">
-                <div className="relative min-h-[240px] md:min-h-[300px]">
+              <Card
+                key={item.title}
+                className={`group overflow-hidden shadow-none ${i === 0 ? "md:col-span-2 md:row-span-2" : "md:col-span-2"}`}
+              >
+                <div className="relative h-full min-h-full">
                   <img
                     src={`${import.meta.env.BASE_URL}${item.image}`}
                     alt={item.title}
-                    className="h-full w-full object-cover absolute inset-0"
+                    className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-5 text-white">
+                    <div className="text-lg font-medium tracking-[-0.02em] md:text-xl">{item.title}</div>
+                    <p className="mt-2 max-w-sm text-sm leading-6 text-white/78">{item.desc}</p>
+                  </div>
                 </div>
-                <CardContent className="p-6 md:p-7">
-                  <div className="text-lg font-medium tracking-[-0.02em] md:text-xl">{item.title}</div>
-                  <p className="mt-3 text-[15px] leading-7 text-black/55">
-                    {item.desc}
-                  </p>
-                </CardContent>
               </Card>
             ))}
           </div>
