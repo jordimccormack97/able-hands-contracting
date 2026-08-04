@@ -5,11 +5,11 @@ import { Card, CardContent } from "./components/ui/card";
 import { ContactForm } from "./components/ContactForm";
 
 const services = [
-  { name: "Fencing", desc: "Privacy fences, decorative borders, and gates." },
-  { name: "Decks", desc: "New decks, deck repairs, and deck resurfacing." },
-  { name: "Carpentry", desc: "Trim, shelving, built-ins, and other woodwork." },
-  { name: "Punch List Items", desc: "Small fixes like caulking, hardware swaps, trim touch-ups, shelves, and fixture installs." },
-  { name: "Home Repairs", desc: "Drywall, doors, trim, fixtures, and general repairs." },
+  { name: "Fencing", desc: "Privacy fences, decorative borders, and gates.", image: "images/work-fencing.jpg" },
+  { name: "Decks", desc: "New decks, deck repairs, and deck resurfacing.", image: "images/deck-build.jpeg" },
+  { name: "Carpentry", desc: "Trim, shelving, built-ins, and other woodwork.", image: "images/work-deck.jpg" },
+  { name: "Punch List Items", desc: "Small fixes like caulking, hardware swaps, trim touch-ups, shelves, and fixture installs.", image: "images/work-repairs.jpg" },
+  { name: "Home Repairs", desc: "Drywall, doors, trim, fixtures, and general repairs.", image: "images/deck-door.jpeg" },
 ];
 
 const work = [
@@ -262,14 +262,24 @@ export default function App() {
 
           <div className="mt-10 grid gap-px overflow-hidden rounded-[2rem] bg-black/6 md:mt-14 md:grid-cols-2 xl:grid-cols-3">
             {services.map((service) => (
-              <div key={service.name} className="group bg-[#f8f5ef] p-7 md:p-10">
-                <div className="flex items-start justify-between gap-6">
-                  <h3 className="text-xl font-medium tracking-[-0.03em] md:text-2xl">{service.name}</h3>
-                  <ArrowRight className="h-5 w-5 text-black/25 transition group-hover:translate-x-1 group-hover:text-black/55" />
+              <div key={service.name} className="group grid min-h-[210px] grid-cols-[112px_1fr] bg-[#f8f5ef] sm:grid-cols-[150px_1fr]">
+                <div className="relative min-h-full overflow-hidden">
+                  <img
+                    src={`${import.meta.env.BASE_URL}${service.image}`}
+                    alt={`${service.name} service`}
+                    className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
                 </div>
-                <p className="mt-5 max-w-sm text-[15px] leading-7 text-black/55">
-                  {service.desc}
-                </p>
+                <div className="p-6 md:p-8">
+                  <div className="flex items-start justify-between gap-6">
+                    <h3 className="text-xl font-medium tracking-[-0.03em] md:text-2xl">{service.name}</h3>
+                    <ArrowRight className="h-5 w-5 shrink-0 text-black/25 transition group-hover:translate-x-1 group-hover:text-black/55" />
+                  </div>
+                  <p className="mt-5 max-w-sm text-[15px] leading-7 text-black/55">
+                    {service.desc}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
