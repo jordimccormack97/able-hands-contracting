@@ -35,6 +35,10 @@ function scrollToContact() {
   document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
 }
 
+function scrollToServices() {
+  document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
+}
+
 function isMobileViewport() {
   return window.innerWidth < 768;
 }
@@ -47,10 +51,10 @@ function useQrMode() {
 }
 
 function QrLanding({ onContinue }: { onContinue: () => void }) {
-  function goToContact() {
+  function goToServices() {
     onContinue();
     setTimeout(() => {
-      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+      document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
     }, 100);
   }
 
@@ -69,11 +73,11 @@ function QrLanding({ onContinue }: { onContinue: () => void }) {
           <div className="mt-8 space-y-3">
             <Button asChild className="h-14 w-full text-base">
               <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" style={{ color: "#fff" }}>
-                Book Meeting
+                Place Job Request
               </a>
             </Button>
-            <Button variant="outline" className="h-14 w-full text-base" onClick={goToContact}>
-              Request Estimate
+            <Button variant="outline" className="h-14 w-full text-base" onClick={goToServices}>
+              Services Offered
             </Button>
           </div>
         </div>
@@ -135,10 +139,10 @@ export default function App() {
             </Button>
             <Button asChild variant="outline">
               <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
-                Book Meeting
+                Place Job Request
               </a>
             </Button>
-            <Button onClick={scrollToContact}>Request Estimate</Button>
+            <Button onClick={scrollToServices}>Services Offered</Button>
           </div>
           <div className="grid w-full grid-cols-3 gap-2 md:hidden">
             <Button asChild size="sm" className="min-w-0 bg-[#1f8a4c] px-2 text-xs text-white hover:bg-[#18743f]">
@@ -149,10 +153,10 @@ export default function App() {
             </Button>
             <Button asChild size="sm" className="min-w-0 px-2 text-xs">
               <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" style={{ color: "#fff" }}>
-                Book Meeting
+                Place Job Request
               </a>
             </Button>
-            <Button size="sm" variant="outline" className="min-w-0 px-2 text-xs" onClick={scrollToContact}>Estimate</Button>
+            <Button size="sm" variant="outline" className="min-w-0 px-2 text-xs" onClick={scrollToServices}>Services</Button>
           </div>
         </div>
       </header>
@@ -344,10 +348,10 @@ export default function App() {
           <div className="mx-auto flex max-w-md gap-3">
             <Button asChild className="h-12 flex-1">
               <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" style={{ color: "#fff" }}>
-                Book Meeting
+                Place Job Request
               </a>
             </Button>
-            <Button className="h-12 flex-1" variant="outline" onClick={scrollToContact}>Estimate</Button>
+            <Button className="h-12 flex-1" variant="outline" onClick={scrollToServices}>Services Offered</Button>
           </div>
         </div>
       )}
@@ -365,7 +369,7 @@ export default function App() {
             <Button className="w-full sm:w-auto" onClick={scrollToContact}>Submit Project Info</Button>
             <Button asChild className="w-full sm:w-auto" variant="outline">
               <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
-                Book Meeting
+                Place Job Request
               </a>
             </Button>
           </div>
