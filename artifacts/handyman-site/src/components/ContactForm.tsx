@@ -112,14 +112,7 @@ export function ContactForm({ calendlyUrl }: ContactFormProps) {
     setFieldErrors({});
 
     const errors: Record<string, string> = {};
-    if (!name.trim()) errors.name = "Name is required";
-    if (!email.trim()) errors.email = "Email is required";
     if (!phone.trim()) errors.phone = "Phone is required";
-    if (!zipCode.trim()) errors.zipCode = "ZIP code is required";
-    if (!serviceType) errors.serviceType = "Please select a service";
-    if (!projectSummary.trim() || projectSummary.trim().length < 20) {
-      errors.projectSummary = "Please describe your project in at least 20 characters";
-    }
 
     if (Object.keys(errors).length > 0) {
       setFieldErrors(errors);
@@ -205,43 +198,42 @@ export function ContactForm({ calendlyUrl }: ContactFormProps) {
       </div>
 
       <div>
-        <label className={labelClass}>Full Name <span className="text-red-400">*</span></label>
-        <input className={inputClass} name="name" placeholder="Your full name" value={name} onChange={(e) => setName(e.target.value)} required />
+        <label className={labelClass}>Full Name</label>
+        <input className={inputClass} name="name" placeholder="Your full name" value={name} onChange={(e) => setName(e.target.value)} />
         {fieldErrors.name && <p className="mt-1 ml-1 text-xs text-red-500">{fieldErrors.name}</p>}
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
-          <label className={labelClass}>Email <span className="text-red-400">*</span></label>
-          <input className={inputClass} name="email" type="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} required />
+          <label className={labelClass}>Email</label>
+          <input className={inputClass} name="email" type="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} />
           {fieldErrors.email && <p className="mt-1 ml-1 text-xs text-red-500">{fieldErrors.email}</p>}
         </div>
         <div>
           <label className={labelClass}>Phone <span className="text-red-400">*</span></label>
-          <input className={inputClass} name="phone" type="tel" placeholder="(919) 555-0123" value={phone} onChange={(e) => setPhone(e.target.value)} required />
+          <input className={inputClass} name="phone" type="tel" placeholder="(630) 487-1834" value={phone} onChange={(e) => setPhone(e.target.value)} required />
           {fieldErrors.phone && <p className="mt-1 ml-1 text-xs text-red-500">{fieldErrors.phone}</p>}
         </div>
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
-          <label className={labelClass}>Project ZIP Code <span className="text-red-400">*</span></label>
-          <input className={inputClass} name="zipCode" placeholder="27514" value={zipCode} onChange={(e) => setZipCode(e.target.value)} required maxLength={10} />
+          <label className={labelClass}>Project ZIP Code</label>
+          <input className={inputClass} name="zipCode" placeholder="27514" value={zipCode} onChange={(e) => setZipCode(e.target.value)} maxLength={10} />
           {fieldErrors.zipCode && <p className="mt-1 ml-1 text-xs text-red-500">{fieldErrors.zipCode}</p>}
         </div>
-        <SelectField label="Service Type" name="serviceType" value={serviceType} onChange={setServiceType} options={SERVICE_TYPES} placeholder="Select a service..." required />
+        <SelectField label="Service Type" name="serviceType" value={serviceType} onChange={setServiceType} options={SERVICE_TYPES} placeholder="Select a service..." />
       </div>
       {fieldErrors.serviceType && <p className="-mt-2 ml-1 text-xs text-red-500">{fieldErrors.serviceType}</p>}
 
       <div>
-        <label className={labelClass}>Project Summary <span className="text-red-400">*</span></label>
+        <label className={labelClass}>Project Summary</label>
         <textarea
           className={`min-h-[120px] ${inputClass}`}
           name="projectSummary"
           placeholder="Briefly describe what you need done."
           value={projectSummary}
           onChange={(e) => setProjectSummary(e.target.value)}
-          required
           maxLength={1000}
         />
         {fieldErrors.projectSummary && <p className="mt-1 ml-1 text-xs text-red-500">{fieldErrors.projectSummary}</p>}
