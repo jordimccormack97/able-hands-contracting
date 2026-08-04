@@ -274,7 +274,7 @@ export default function App() {
       </header>
 
       <main>
-        <section id="home" className="mx-auto flex min-h-[calc(100vh-7rem)] max-w-7xl items-center justify-center px-4 py-8 md:min-h-[calc(100vh-6rem)] md:px-6 md:py-20">
+        <section id="home" className="mx-auto flex min-h-[calc(100vh-7rem)] max-w-7xl items-start justify-center px-4 pb-8 pt-2 md:min-h-[calc(100vh-6rem)] md:px-6 md:pb-20 md:pt-4">
           <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
             <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:text-left md:gap-6">
               <img
@@ -289,7 +289,7 @@ export default function App() {
                 Contracting
               </h1>
             </div>
-            <div className="mt-6 flex w-full max-w-md flex-col gap-3 sm:flex-row sm:justify-center md:mt-8">
+            <div className="mt-3 flex w-full max-w-md flex-col gap-3 sm:flex-row sm:justify-center md:mt-4">
               <Button className="h-14 w-full text-base sm:w-auto" onClick={scrollToContact}>
                 Place Job Request
               </Button>
