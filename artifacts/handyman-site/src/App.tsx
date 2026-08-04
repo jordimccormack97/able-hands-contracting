@@ -432,7 +432,6 @@ export default function App() {
                         {person.title}
                       </div>
                       <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                        <Button className="w-full sm:w-auto" onClick={scrollToContact}>Place Job Request</Button>
                         <Button asChild className="w-full sm:w-auto bg-[#1f8a4c] text-white hover:bg-[#18743f]">
                           <a href={PHONE_LINK}>Call {PHONE}</a>
                         </Button>
