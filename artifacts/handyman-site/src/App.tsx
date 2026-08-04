@@ -42,9 +42,9 @@ const services = [
 ];
 
 const work = [
-  { title: "Cedar privacy fencing", desc: "Fence installation with a custom gate.", image: "images/gate-2.jpeg" },
+  { title: "Cedar privacy fencing", desc: "Fence installation with a custom gate.", image: "images/privacy-fence-stock.jpg" },
   { title: "Custom outdoor deck", desc: "Deck build with seating and railing.", image: "images/deck-build.jpeg" },
-  { title: "Interior and exterior repairs", desc: "Drywall, trim, doors, and exterior repairs.", image: "images/work-repairs.jpg" },
+  { title: "Interior and exterior repairs", desc: "Drywall, trim, doors, and exterior repairs.", image: "images/interior-exterior-repairs-stock.jpg" },
 ];
 
 const expectations = [
@@ -54,7 +54,8 @@ const expectations = [
 ];
 
 const CALENDLY_URL = "https://calendly.com/jordi-mccormack";
-const PHONE = "(919) 533-9583";
+const PHONE = "(630) 487-1834";
+const PHONE_LINK = "tel:6304871834";
 const EMAIL = "Jordi.mccormack97@gmail.com";
 const SERVICE_AREA = "RTP, Chapel Hill, Durham, Raleigh, Cary (Please inquire about locations outside those listed.)";
 const LOGO_IMAGE = `${import.meta.env.BASE_URL}images/able-hands-logo-trimmed.png`;
@@ -173,16 +174,24 @@ export default function App() {
               Able Hands Contracting
             </span>
           </a>
-          <Button
-            type="button"
-            variant="outline"
-            className="h-11 w-11 shrink-0 p-0"
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-            aria-expanded={menuOpen}
-            onClick={() => setMenuOpen((open) => !open)}
-          >
-            {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </Button>
+          <div className="flex shrink-0 items-center gap-2">
+            <Button asChild className="h-11 bg-[#1f8a4c] px-3 text-white hover:bg-[#18743f] sm:px-4">
+              <a href={PHONE_LINK}>
+                <Phone className="h-4 w-4 sm:mr-2" />
+                <span className="sr-only sm:not-sr-only sm:inline">{PHONE}</span>
+              </a>
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              className="h-11 w-11 shrink-0 p-0"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen((open) => !open)}
+            >
+              {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </Button>
+          </div>
           {menuOpen && (
             <div className="absolute right-4 top-[calc(100%+0.5rem)] z-50 w-[min(20rem,calc(100vw-2rem))] rounded-[1.5rem] border border-black/10 bg-[#f8f5ef] p-3 shadow-xl md:right-6">
               <a
@@ -209,11 +218,11 @@ export default function App() {
                 List of Services
               </button>
               <a
-                href="tel:9195339583"
+                href={PHONE_LINK}
                 className="block rounded-2xl px-4 py-3 text-sm font-medium text-black/70 transition hover:bg-black/5 hover:text-black"
                 onClick={closeMenu}
               >
-                Call 919-533-9583
+                Call 630-487-1834
               </a>
             </div>
           )}
@@ -223,11 +232,19 @@ export default function App() {
       <main>
         <section id="home" className="mx-auto flex min-h-[calc(100vh-7rem)] max-w-7xl items-center justify-center px-4 py-16 md:min-h-[calc(100vh-6rem)] md:px-6 md:py-24">
           <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-            <h1 className="text-5xl font-medium leading-[0.95] tracking-[-0.05em] sm:text-6xl md:text-7xl lg:text-[96px]">
-              Able Hands
-              <br />
-              Contracting
-            </h1>
+            <div className="flex flex-col items-center justify-center gap-5 sm:flex-row sm:text-left md:gap-7">
+              <img
+                src={LOGO_IMAGE}
+                alt="Able Hands Contracting"
+                className="h-24 w-auto shrink-0 object-contain sm:h-28 md:h-36"
+                loading="eager"
+              />
+              <h1 className="text-5xl font-medium leading-[0.95] tracking-[-0.05em] sm:text-6xl md:text-7xl lg:text-[96px]">
+                Able Hands
+                <br />
+                Contracting
+              </h1>
+            </div>
             <div className="mt-8 flex w-full max-w-md flex-col gap-3 sm:flex-row sm:justify-center">
               <Button className="h-14 w-full text-base sm:w-auto" onClick={scrollToContact}>
                 Place Job Request
@@ -251,6 +268,28 @@ export default function App() {
                 <p className="mt-4 max-w-sm text-base leading-7 text-black/60">{desc}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        <section id="services" className="mx-auto max-w-7xl px-4 py-16 md:px-6 md:py-28">
+          <div className="max-w-3xl">
+            <div className="text-[12px] uppercase tracking-[0.28em] text-black/40">Services</div>
+            <h2 className="mt-4 text-3xl font-medium leading-tight tracking-[-0.04em] sm:text-4xl md:text-6xl">
+              Services
+              <br />
+              offered.
+            </h2>
+          </div>
+
+          <div className="mt-10 rounded-[2rem] border border-black/6 bg-[#f8f5ef] p-6 md:mt-14 md:p-10">
+            <ul className="grid gap-x-10 gap-y-4 text-[15px] leading-6 text-black/65 sm:grid-cols-2 lg:grid-cols-3">
+              {services.map((service) => (
+                <li key={service} className="flex gap-3">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#1f8a4c]" aria-hidden="true" />
+                  <span>{service}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
@@ -283,28 +322,6 @@ export default function App() {
                 </CardContent>
               </Card>
             ))}
-          </div>
-        </section>
-
-        <section id="services" className="mx-auto max-w-7xl px-4 py-16 md:px-6 md:py-28">
-          <div className="max-w-3xl">
-            <div className="text-[12px] uppercase tracking-[0.28em] text-black/40">Services</div>
-            <h2 className="mt-4 text-3xl font-medium leading-tight tracking-[-0.04em] sm:text-4xl md:text-6xl">
-              Services
-              <br />
-              offered.
-            </h2>
-          </div>
-
-          <div className="mt-10 rounded-[2rem] border border-black/6 bg-[#f8f5ef] p-6 md:mt-14 md:p-10">
-            <ul className="grid gap-x-10 gap-y-4 text-[15px] leading-6 text-black/65 sm:grid-cols-2 lg:grid-cols-3">
-              {services.map((service) => (
-                <li key={service} className="flex gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#1f8a4c]" aria-hidden="true" />
-                  <span>{service}</span>
-                </li>
-              ))}
-            </ul>
           </div>
         </section>
 
