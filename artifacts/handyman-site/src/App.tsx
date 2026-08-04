@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Menu, X, Phone, Mail, MapPin } from "lucide-react";
 import { Button } from "./components/ui/button";
 import { Card, CardContent } from "./components/ui/card";
 import { ContactForm } from "./components/ContactForm";
@@ -57,7 +57,6 @@ const CALENDLY_URL = "https://calendly.com/jordi-mccormack";
 const PHONE = "(919) 533-9583";
 const EMAIL = "Jordi.mccormack97@gmail.com";
 const SERVICE_AREA = "RTP, Chapel Hill, Durham, Raleigh, Cary (Please inquire about locations outside those listed.)";
-const HERO_IMAGE = `${import.meta.env.BASE_URL}images/main-logo.jpg`;
 const LOGO_IMAGE = `${import.meta.env.BASE_URL}images/able-hands-logo-trimmed.png`;
 
 function scrollToContact() {
@@ -80,6 +79,13 @@ function useQrMode() {
 }
 
 function QrLanding({ onContinue }: { onContinue: () => void }) {
+  function goToContact() {
+    onContinue();
+    setTimeout(() => {
+      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  }
+
   function goToServices() {
     onContinue();
     setTimeout(() => {
@@ -100,13 +106,11 @@ function QrLanding({ onContinue }: { onContinue: () => void }) {
           </p>
 
           <div className="mt-8 space-y-3">
-            <Button asChild className="h-14 w-full text-base">
-              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" style={{ color: "#fff" }}>
-                Place Job Request
-              </a>
+            <Button className="h-14 w-full text-base" onClick={goToContact}>
+              Place Job Request
             </Button>
             <Button variant="outline" className="h-14 w-full text-base" onClick={goToServices}>
-              Services Offered
+              List of Services
             </Button>
           </div>
         </div>
@@ -133,6 +137,21 @@ export default function App() {
   const qrMode = useQrMode();
   const [showFullSite, setShowFullSite] = useState(!qrMode);
   const [isMobile, setIsMobile] = useState(() => isMobileViewport());
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  function closeMenu() {
+    setMenuOpen(false);
+  }
+
+  function menuScrollToContact() {
+    closeMenu();
+    scrollToContact();
+  }
+
+  function menuScrollToServices() {
+    closeMenu();
+    scrollToServices();
+  }
 
   useEffect(() => {
     const onResize = () => setIsMobile(isMobileViewport());
@@ -147,87 +166,75 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#f5f2ec] pb-24 text-[#171717] antialiased md:pb-0">
       <header className="sticky top-0 z-30 border-b border-black/5 bg-[#f5f2ec]/90 backdrop-blur">
-        <div className="mx-auto grid max-w-7xl gap-3 px-4 py-3 md:flex md:flex-nowrap md:items-center md:justify-between md:px-6 md:py-5">
+        <div className="relative mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 md:px-6 md:py-5">
           <a href="#home" className="flex min-w-0 items-center gap-3" aria-label="Able Hands Contracting home">
             <img src={LOGO_IMAGE} alt="Able Hands Contracting" className="h-11 w-auto shrink-0 object-contain md:h-14" />
             <span className="min-w-0 text-[12px] uppercase tracking-[0.16em] text-black/70 md:text-[15px] md:tracking-[0.18em]">
               Able Hands Contracting
             </span>
           </a>
-          <nav className="hidden items-center gap-8 text-sm text-black/65 md:flex">
-            <a href="#home" className="transition hover:text-black">Home</a>
-            <a href="#work" className="transition hover:text-black">Work</a>
-            <a href="#services" className="transition hover:text-black">Services</a>
-            <a href="#about" className="transition hover:text-black">About</a>
-            <a href="#reviews" className="transition hover:text-black">Reviews</a>
-            <a href="#contact" className="transition hover:text-black">Contact</a>
-          </nav>
-          <div className="hidden items-center gap-3 md:flex">
-            <Button asChild className="bg-[#1f8a4c] text-white hover:bg-[#18743f]">
-              <a href="tel:9195339583">☎ 919-533-9583</a>
-            </Button>
-            <Button asChild variant="outline">
-              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
+          <Button
+            type="button"
+            variant="outline"
+            className="h-11 w-11 shrink-0 p-0"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </Button>
+          {menuOpen && (
+            <div className="absolute right-4 top-[calc(100%+0.5rem)] z-50 w-[min(20rem,calc(100vw-2rem))] rounded-[1.5rem] border border-black/10 bg-[#f8f5ef] p-3 shadow-xl md:right-6">
+              <a
+                href={CALENDLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block rounded-2xl px-4 py-3 text-sm font-medium text-black/70 transition hover:bg-black/5 hover:text-black"
+                onClick={closeMenu}
+              >
+                Book Meeting
+              </a>
+              <button
+                type="button"
+                className="block w-full rounded-2xl px-4 py-3 text-left text-sm font-medium text-black/70 transition hover:bg-black/5 hover:text-black"
+                onClick={menuScrollToContact}
+              >
                 Place Job Request
+              </button>
+              <button
+                type="button"
+                className="block w-full rounded-2xl px-4 py-3 text-left text-sm font-medium text-black/70 transition hover:bg-black/5 hover:text-black"
+                onClick={menuScrollToServices}
+              >
+                List of Services
+              </button>
+              <a
+                href="tel:9195339583"
+                className="block rounded-2xl px-4 py-3 text-sm font-medium text-black/70 transition hover:bg-black/5 hover:text-black"
+                onClick={closeMenu}
+              >
+                Call 919-533-9583
               </a>
-            </Button>
-            <Button onClick={scrollToServices}>Services Offered</Button>
-          </div>
-          <div className="grid w-full grid-cols-3 gap-2 md:hidden">
-            <Button asChild size="sm" className="min-w-0 bg-[#1f8a4c] px-2 text-xs text-white hover:bg-[#18743f]">
-              <a href="tel:9195339583">
-                <span className="min-[430px]:hidden">☎ Call</span>
-                <span className="hidden min-[430px]:inline">☎ 919-533-9583</span>
-              </a>
-            </Button>
-            <Button asChild size="sm" className="min-w-0 px-2 text-xs">
-              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" style={{ color: "#fff" }}>
-                Place Job Request
-              </a>
-            </Button>
-            <Button size="sm" variant="outline" className="min-w-0 px-2 text-xs" onClick={scrollToServices}>Services</Button>
-          </div>
+            </div>
+          )}
         </div>
       </header>
 
       <main>
-        <section id="home" className="mx-auto max-w-7xl px-4 pb-14 pt-14 md:px-6 md:pb-24 md:pt-28">
-          <div className="grid gap-8 min-[560px]:grid-cols-[0.95fr_1.05fr] min-[560px]:items-start lg:grid-cols-[1fr_0.9fr]">
-            <div className="max-w-3xl">
-              <div className="mb-5 text-[11px] uppercase tracking-[0.28em] text-black/45 md:mb-6 md:text-[12px]">
-                Handyman and contracting services in the Triangle
-              </div>
-              <h1 className="text-4xl font-medium leading-[0.98] tracking-[-0.05em] sm:text-5xl md:text-7xl lg:text-[88px]">
-                Home repairs
-                <br />
-                and outdoor
-                <br />
-                projects.
-              </h1>
-              <p className="mt-6 max-w-xl text-[16px] leading-7 text-black/62 md:mt-8 md:text-[18px] md:leading-8">
-                Able Hands Contracting handles all project types from small home repairs to full deck and fence installations.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 gap-3">
-              <Card className="flex h-[320px] items-center justify-center p-3 shadow-none min-[560px]:h-[260px] md:h-[430px] md:p-5 lg:h-[500px]">
-                <img
-                  src={LOGO_IMAGE}
-                  alt="Able Hands Contracting"
-                  className="max-h-full w-full object-contain"
-                  loading="eager"
-                />
-              </Card>
-              <Card className="overflow-hidden shadow-none">
-                <div className="relative h-[320px] min-[560px]:h-[260px] md:h-[430px] lg:h-[500px]">
-                  <img
-                    src={HERO_IMAGE}
-                    alt="Jordi McCormack — Able Hands Contracting"
-                    className="h-full w-full object-cover object-[50%_18%] absolute inset-0"
-                    loading="eager"
-                  />
-                </div>
-              </Card>
+        <section id="home" className="mx-auto flex min-h-[calc(100vh-7rem)] max-w-7xl items-center justify-center px-4 py-16 md:min-h-[calc(100vh-6rem)] md:px-6 md:py-24">
+          <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
+            <h1 className="text-5xl font-medium leading-[0.95] tracking-[-0.05em] sm:text-6xl md:text-7xl lg:text-[96px]">
+              Able Hands
+              <br />
+              Contracting
+            </h1>
+            <div className="mt-8 flex w-full max-w-md flex-col gap-3 sm:flex-row sm:justify-center">
+              <Button className="h-14 w-full text-base sm:w-auto" onClick={scrollToContact}>
+                Place Job Request
+              </Button>
+              <Button variant="outline" className="h-14 w-full text-base sm:w-auto" onClick={scrollToServices}>
+                List of Services
+              </Button>
             </div>
           </div>
         </section>
@@ -372,12 +379,8 @@ export default function App() {
       {isMobile && (
         <div className="fixed inset-x-0 bottom-0 z-40 border-t border-black/10 bg-[#f5f2ec]/95 p-3 backdrop-blur md:hidden">
           <div className="mx-auto flex max-w-md gap-3">
-            <Button asChild className="h-12 flex-1">
-              <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" style={{ color: "#fff" }}>
-                Place Job Request
-              </a>
-            </Button>
-            <Button className="h-12 flex-1" variant="outline" onClick={scrollToServices}>Services Offered</Button>
+            <Button className="h-12 flex-1" onClick={scrollToContact}>Place Job Request</Button>
+            <Button className="h-12 flex-1" variant="outline" onClick={scrollToServices}>List of Services</Button>
           </div>
         </div>
       )}
@@ -388,14 +391,13 @@ export default function App() {
             <img src={LOGO_IMAGE} alt="Able Hands Contracting" className="h-20 w-auto object-contain" />
             <div>
               <div className="text-[13px] uppercase tracking-[0.18em] text-black/55">Able Hands Contracting</div>
-              <div className="mt-2 text-sm text-black/45">Home repairs and outdoor projects.</div>
             </div>
           </div>
           <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
             <Button className="w-full sm:w-auto" onClick={scrollToContact}>Submit Project Info</Button>
             <Button asChild className="w-full sm:w-auto" variant="outline">
               <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">
-                Place Job Request
+                Book Meeting
               </a>
             </Button>
           </div>

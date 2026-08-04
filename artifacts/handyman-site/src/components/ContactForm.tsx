@@ -297,7 +297,7 @@ export function ContactForm({ calendlyUrl }: ContactFormProps) {
         </Button>
         <Button asChild className="w-full sm:w-auto" type="button" variant="outline">
           <a href={calendlyUrl} target="_blank" rel="noopener noreferrer">
-            Place Job Request
+            Book Meeting
           </a>
         </Button>
       </div>
