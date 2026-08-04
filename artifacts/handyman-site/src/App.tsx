@@ -110,14 +110,14 @@ function QrLanding({ onContinue }: { onContinue: () => void }) {
   }
 
   return (
-    <div className="min-h-screen bg-[#e7e7e7] px-5 py-6 text-[#171717]">
+    <div className="min-h-screen bg-[#e7e7e7] px-5 py-6 text-[#205070]">
       <div className="mx-auto flex min-h-[calc(100vh-3rem)] max-w-md flex-col justify-between">
         <div>
           <img src={LOGO_IMAGE} alt="Able Hands Contracting" className="h-44 w-auto object-contain" />
           <h1 className="mt-6 text-4xl font-medium leading-tight tracking-[-0.04em]">
             Book your consultation now.
           </h1>
-          <p className="mt-4 text-[16px] leading-7 text-black/62">
+          <p className="mt-4 text-[16px] leading-7 text-[#205070]/75">
             Book a consultation or request an estimate for your home project.
           </p>
 
@@ -131,9 +131,9 @@ function QrLanding({ onContinue }: { onContinue: () => void }) {
           </div>
         </div>
 
-        <div className="rounded-[2rem] border border-black/5 bg-white p-6">
-          <div className="text-sm uppercase tracking-[0.18em] text-black/35">Services</div>
-          <div className="mt-4 grid grid-cols-2 gap-3 text-sm text-black/65">
+        <div className="rounded-[2rem] border border-[#80a0d0]/25 bg-white p-6">
+          <div className="text-sm uppercase tracking-[0.18em] text-[#80a0d0]">Services</div>
+          <div className="mt-4 grid grid-cols-2 gap-3 text-sm text-[#205070]/80">
             {services.slice(0, 6).map((service) => (
               <div key={service} className="rounded-2xl bg-[#f8f5ef] px-4 py-3">
                 {service}
@@ -190,22 +190,22 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-[#e7e7e7] pb-24 text-[#171717] antialiased md:pb-0">
-      <header className="sticky top-0 z-30 border-b border-black/5 bg-[#e7e7e7]/90 backdrop-blur">
+    <div className="min-h-screen bg-[#e7e7e7] pb-24 text-[#205070] antialiased md:pb-0">
+      <header className="sticky top-0 z-30 border-b border-[#80a0d0]/25 bg-[#e7e7e7]/90 backdrop-blur">
         <div className="relative mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 md:px-6 md:py-5">
           <a href="#home" className="flex min-w-0 items-center gap-3" aria-label="Able Hands Contracting home">
             <img src={LOGO_IMAGE} alt="Able Hands Contracting" className="h-16 w-auto shrink-0 object-contain md:h-20" />
             <span className="min-w-0">
-              <span className="block text-[12px] uppercase tracking-[0.16em] text-black/70 md:text-[15px] md:tracking-[0.18em]">
+              <span className="block text-[12px] uppercase tracking-[0.16em] text-[#205070] md:text-[15px] md:tracking-[0.18em]">
                 Able Hands Contracting
               </span>
-              <span className="mt-1 block text-[10px] uppercase tracking-[0.16em] text-black/45 md:text-[11px]">
+              <span className="mt-1 block text-[10px] uppercase tracking-[0.16em] text-[#80a0d0] md:text-[11px]">
                 Capable. Reliable. Done.
               </span>
             </span>
           </a>
           <div className="flex shrink-0 items-center gap-2">
-            <Button asChild className="h-11 bg-[#1f8a4c] px-3 text-white hover:bg-[#18743f] sm:px-4">
+            <Button asChild className="h-11 bg-[#205070] px-3 text-white hover:bg-[#204060] sm:px-4">
               <a href={PHONE_LINK}>
                 <Phone className="h-4 w-4 sm:mr-2" />
                 <span className="sr-only sm:not-sr-only sm:inline">{PHONE}</span>
@@ -223,47 +223,47 @@ export default function App() {
             </Button>
           </div>
           {menuOpen && (
-            <div className="absolute right-4 top-[calc(100%+0.5rem)] z-50 w-[min(20rem,calc(100vw-2rem))] rounded-[1.5rem] border border-black/10 bg-[#f8f5ef] p-3 shadow-xl md:right-6">
+            <div className="absolute right-4 top-[calc(100%+0.5rem)] z-50 w-[min(20rem,calc(100vw-2rem))] rounded-[1.5rem] border border-[#80a0d0]/35 bg-[#f8f5ef] p-3 shadow-xl md:right-6">
               <a
                 href={CALENDLY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block rounded-2xl px-4 py-3 text-sm font-medium text-black/70 transition hover:bg-black/5 hover:text-black"
+                className="block rounded-2xl px-4 py-3 text-sm font-medium text-[#205070] transition hover:bg-[#80a0d0]/20 hover:text-[#205070]"
                 onClick={closeMenu}
               >
                 Book Meeting
               </a>
               <button
                 type="button"
-                className="block w-full rounded-2xl px-4 py-3 text-left text-sm font-medium text-black/70 transition hover:bg-black/5 hover:text-black"
+                className="block w-full rounded-2xl px-4 py-3 text-left text-sm font-medium text-[#205070] transition hover:bg-[#80a0d0]/20 hover:text-[#205070]"
                 onClick={menuScrollToContact}
               >
                 Place Job Request
               </button>
               <button
                 type="button"
-                className="block w-full rounded-2xl px-4 py-3 text-left text-sm font-medium text-black/70 transition hover:bg-black/5 hover:text-black"
+                className="block w-full rounded-2xl px-4 py-3 text-left text-sm font-medium text-[#205070] transition hover:bg-[#80a0d0]/20 hover:text-[#205070]"
                 onClick={menuScrollToServices}
               >
                 List of Services
               </button>
               <button
                 type="button"
-                className="block w-full rounded-2xl px-4 py-3 text-left text-sm font-medium text-black/70 transition hover:bg-black/5 hover:text-black"
+                className="block w-full rounded-2xl px-4 py-3 text-left text-sm font-medium text-[#205070] transition hover:bg-[#80a0d0]/20 hover:text-[#205070]"
                 onClick={menuScrollToPortfolio}
               >
                 Portfolio
               </button>
               <button
                 type="button"
-                className="block w-full rounded-2xl px-4 py-3 text-left text-sm font-medium text-black/70 transition hover:bg-black/5 hover:text-black"
+                className="block w-full rounded-2xl px-4 py-3 text-left text-sm font-medium text-[#205070] transition hover:bg-[#80a0d0]/20 hover:text-[#205070]"
                 onClick={menuScrollToContactUs}
               >
                 Contact Us
               </button>
               <a
                 href={PHONE_LINK}
-                className="block rounded-2xl px-4 py-3 text-sm font-medium text-black/70 transition hover:bg-black/5 hover:text-black"
+                className="block rounded-2xl px-4 py-3 text-sm font-medium text-[#205070] transition hover:bg-[#80a0d0]/20 hover:text-[#205070]"
                 onClick={closeMenu}
               >
                 Call 630-487-1834
@@ -301,15 +301,15 @@ export default function App() {
         </section>
 
         <section className="mx-auto max-w-7xl px-4 pb-8 md:px-6 md:pb-12">
-          <div className="grid gap-px overflow-hidden rounded-[2rem] bg-black/6 md:grid-cols-3">
+          <div className="grid gap-px overflow-hidden rounded-[2rem] bg-[#80a0d0]/25 md:grid-cols-3">
             {[
               ["Portfolio", "Repairs, builds, and installs for homes and outdoor spaces."],
               ["Process", "Clear scope, scheduling, and follow-up."],
               ["Service area", "Chapel Hill, Durham, Raleigh, Cary, and nearby areas."],
             ].map(([title, desc]) => (
               <div key={title} className="bg-[#f8f5ef] p-7 md:p-10">
-                <div className="text-sm uppercase tracking-[0.18em] text-black/35">{title}</div>
-                <p className="mt-4 max-w-sm text-base leading-7 text-black/60">{desc}</p>
+                <div className="text-sm uppercase tracking-[0.18em] text-[#80a0d0]">{title}</div>
+                <p className="mt-4 max-w-sm text-base leading-7 text-[#205070]/75">{desc}</p>
               </div>
             ))}
           </div>
@@ -317,7 +317,7 @@ export default function App() {
 
         <section id="services" className="mx-auto max-w-7xl px-4 py-16 md:px-6 md:py-28">
           <div className="max-w-3xl">
-            <div className="text-[12px] uppercase tracking-[0.28em] text-black/40">Services</div>
+            <div className="text-[12px] uppercase tracking-[0.28em] text-[#80a0d0]">Services</div>
             <h2 className="mt-4 text-3xl font-medium leading-tight tracking-[-0.04em] sm:text-4xl md:text-6xl">
               Services
               <br />
@@ -325,11 +325,11 @@ export default function App() {
             </h2>
           </div>
 
-          <div className="mt-10 rounded-[2rem] border border-black/6 bg-[#f8f5ef] p-6 md:mt-14 md:p-10">
-            <ul className="grid gap-x-10 gap-y-4 text-[15px] leading-6 text-black/65 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 rounded-[2rem] border border-[#80a0d0]/25 bg-[#f8f5ef] p-6 md:mt-14 md:p-10">
+            <ul className="grid gap-x-10 gap-y-4 text-[15px] leading-6 text-[#205070]/80 sm:grid-cols-2 lg:grid-cols-3">
               {services.map((service) => (
                 <li key={service} className="flex gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#1f8a4c]" aria-hidden="true" />
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#205070]" aria-hidden="true" />
                   <span>{service}</span>
                 </li>
               ))}
@@ -340,7 +340,7 @@ export default function App() {
         <section id="portfolio" className="mx-auto max-w-7xl px-4 py-16 md:px-6 md:py-28">
           <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <div>
-              <div className="text-[12px] uppercase tracking-[0.28em] text-black/40">Portfolio</div>
+              <div className="text-[12px] uppercase tracking-[0.28em] text-[#80a0d0]">Portfolio</div>
               <h2 className="mt-4 text-3xl font-medium leading-tight tracking-[-0.04em] sm:text-4xl md:text-6xl">
                 Portfolio.
               </h2>
@@ -373,13 +373,13 @@ export default function App() {
         <section id="about" className="mx-auto max-w-7xl px-4 pb-16 pt-8 md:px-6 md:pb-28 md:pt-12">
           <div>
             <div className="max-w-3xl">
-              <div className="text-[12px] uppercase tracking-[0.28em] text-black/40">About</div>
+              <div className="text-[12px] uppercase tracking-[0.28em] text-[#80a0d0]">About</div>
               <h2 className="mt-4 text-3xl font-medium leading-tight tracking-[-0.04em] sm:text-4xl md:text-6xl">
                 About Jordi
                 <br />
                 and Able Hands Contracting.
               </h2>
-              <div className="mt-8 space-y-6 text-[16px] leading-7 text-black/62 md:text-[17px] md:leading-8">
+              <div className="mt-8 space-y-6 text-[16px] leading-7 text-[#205070]/75 md:text-[17px] md:leading-8">
                 <p>
                   Jordi McCormack owns Able Hands Contracting. He attended UNC Chapel Hill and chose hands-on work over a traditional corporate path, building a business around practical skills, problem-solving, and reliable service.
                 </p>
@@ -393,7 +393,7 @@ export default function App() {
 
         <section id="reviews" className="mx-auto max-w-7xl px-4 py-16 md:px-6 md:py-28">
           <div>
-            <div className="text-[12px] uppercase tracking-[0.28em] text-black/40">What to expect</div>
+            <div className="text-[12px] uppercase tracking-[0.28em] text-[#80a0d0]">What to expect</div>
             <h2 className="mt-4 text-3xl font-medium leading-tight tracking-[-0.04em] sm:text-4xl md:text-6xl">
               What you can expect.
             </h2>
@@ -404,7 +404,7 @@ export default function App() {
               <Card key={i} className="shadow-none">
                 <CardContent className="p-7 md:p-8">
                   <h3 className="text-lg font-medium tracking-[-0.02em]">{item.title}</h3>
-                  <p className="mt-4 text-[15px] leading-8 text-black/62">{item.desc}</p>
+                  <p className="mt-4 text-[15px] leading-8 text-[#205070]/75">{item.desc}</p>
                 </CardContent>
               </Card>
             ))}
@@ -414,7 +414,7 @@ export default function App() {
         <section id="contact-us" className="mx-auto max-w-7xl px-4 py-16 md:px-6 md:py-28">
           <div>
             <div className="max-w-3xl">
-              <div className="text-[12px] uppercase tracking-[0.28em] text-black/40">Contact Us</div>
+              <div className="text-[12px] uppercase tracking-[0.28em] text-[#80a0d0]">Contact Us</div>
               <h2 className="mt-4 text-3xl font-medium leading-tight tracking-[-0.04em] sm:text-4xl md:text-6xl">
                 Talk with our team.
               </h2>
@@ -433,11 +433,11 @@ export default function App() {
                     </div>
                     <CardContent className="flex flex-col justify-center p-7 md:p-10">
                       <div className="text-2xl font-medium tracking-[-0.03em] md:text-3xl">{person.name}</div>
-                      <div className="mt-3 text-sm uppercase tracking-[0.18em] text-black/40">
+                      <div className="mt-3 text-sm uppercase tracking-[0.18em] text-[#80a0d0]">
                         {person.title}
                       </div>
                       <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                        <Button asChild className="w-full sm:w-auto bg-[#1f8a4c] text-white hover:bg-[#18743f]">
+                        <Button asChild className="w-full sm:w-auto bg-[#205070] text-white hover:bg-[#204060]">
                           <a href={PHONE_LINK}>Call {PHONE}</a>
                         </Button>
                       </div>
@@ -454,17 +454,17 @@ export default function App() {
             <Card className="rounded-[2.5rem] shadow-none">
               <CardContent className="p-8 md:p-10">
                 <img src={LOGO_IMAGE} alt="Able Hands Contracting" className="mb-8 h-44 w-auto object-contain" />
-                <div className="text-[12px] uppercase tracking-[0.28em] text-black/40">Contact</div>
+                <div className="text-[12px] uppercase tracking-[0.28em] text-[#80a0d0]">Contact</div>
                 <h2 className="mt-4 text-3xl font-medium leading-tight tracking-[-0.04em] sm:text-4xl md:text-5xl">
                   Start your project.
                 </h2>
-                <p className="mt-5 max-w-xl text-[16px] leading-8 text-black/58">
+                <p className="mt-5 max-w-xl text-[16px] leading-8 text-[#205070]/70">
                   Send your contact information and a short project description, or book a consultation directly.
                 </p>
 
                 <ContactForm calendlyUrl={CALENDLY_URL} />
 
-                <div className="mt-10 grid gap-4 text-sm text-black/50">
+                <div className="mt-10 grid gap-4 text-sm text-[#205070]/60">
                   <div className="flex items-center gap-3"><Phone className="h-4 w-4" /> {PHONE}</div>
                   <div className="flex items-center gap-3"><Mail className="h-4 w-4" /> {EMAIL}</div>
                   <div className="flex items-center gap-3"><MapPin className="h-4 w-4" /> {SERVICE_AREA}</div>
@@ -477,7 +477,7 @@ export default function App() {
       </main>
 
       {isMobile && (
-        <div className="fixed inset-x-0 bottom-0 z-40 border-t border-black/10 bg-[#e7e7e7]/95 p-3 backdrop-blur md:hidden">
+        <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[#80a0d0]/35 bg-[#e7e7e7]/95 p-3 backdrop-blur md:hidden">
           <div className="mx-auto flex max-w-md gap-3">
             <Button className="h-12 flex-1" onClick={scrollToContact}>Place Job Request</Button>
             <Button className="h-12 flex-1" variant="outline" onClick={scrollToServices}>List of Services</Button>
@@ -485,12 +485,12 @@ export default function App() {
         </div>
       )}
 
-      <footer className="border-t border-black/6 bg-[#e7e7e7]">
+      <footer className="border-t border-[#80a0d0]/25 bg-[#e7e7e7]">
         <div className="mx-auto flex max-w-7xl flex-col gap-5 px-4 py-8 md:flex-row md:items-center md:justify-between md:px-6">
           <div className="flex items-center gap-4">
             <img src={LOGO_IMAGE} alt="Able Hands Contracting" className="h-40 w-auto object-contain" />
             <div>
-              <div className="text-[13px] uppercase tracking-[0.18em] text-black/55">Able Hands Contracting</div>
+              <div className="text-[13px] uppercase tracking-[0.18em] text-[#205070]/65">Able Hands Contracting</div>
             </div>
           </div>
           <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">

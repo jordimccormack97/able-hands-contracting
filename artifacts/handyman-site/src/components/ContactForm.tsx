@@ -3,10 +3,10 @@ import { CheckCircle2, ImagePlus, X } from "lucide-react";
 import { Button } from "./ui/button";
 
 const inputClass =
-  "w-full rounded-[1.5rem] border border-black/10 bg-[#faf7f2] px-5 py-4 text-sm outline-none focus:border-black/25 transition";
+  "w-full rounded-[1.5rem] border border-[#80a0d0]/35 bg-[#faf7f2] px-5 py-4 text-sm outline-none focus:border-[#205070]/50 transition";
 const selectClass =
-  "w-full rounded-[1.5rem] border border-black/10 bg-[#faf7f2] px-5 py-4 text-sm outline-none focus:border-black/25 transition appearance-none";
-const labelClass = "block text-xs font-medium text-black/50 mb-1.5 ml-1";
+  "w-full rounded-[1.5rem] border border-[#80a0d0]/35 bg-[#faf7f2] px-5 py-4 text-sm outline-none focus:border-[#205070]/50 transition appearance-none";
+const labelClass = "block text-xs font-medium text-[#205070]/60 mb-1.5 ml-1";
 const MAX_PHOTO_SIZE = 10 * 1024 * 1024;
 const MAX_PHOTOS = 5;
 
@@ -152,10 +152,10 @@ export function ContactForm({ calendlyUrl }: ContactFormProps) {
 
   if (status === "success") {
     return (
-      <div className="mt-8 flex flex-col items-center gap-4 rounded-[2rem] border border-green-200 bg-green-50 p-10 text-center">
-        <CheckCircle2 className="h-10 w-10 text-green-600" />
-        <h3 className="text-xl font-medium text-green-900">Thank you!</h3>
-        <p className="max-w-md text-sm text-green-800">
+      <div className="mt-8 flex flex-col items-center gap-4 rounded-[2rem] border border-[#80a0d0]/35 bg-[#80a0d0]/15 p-10 text-center">
+        <CheckCircle2 className="h-10 w-10 text-[#205070]" />
+        <h3 className="text-xl font-medium text-[#205070]">Thank you!</h3>
+        <p className="max-w-md text-sm text-[#205070]/75">
           Your request has been submitted. We'll be in touch within one business day.
         </p>
         <Button
@@ -241,10 +241,10 @@ export function ContactForm({ calendlyUrl }: ContactFormProps) {
 
       <div>
         <label className={labelClass}>Project Photos</label>
-        <label className="flex cursor-pointer flex-col items-center justify-center gap-2 rounded-[1.5rem] border border-dashed border-black/15 bg-[#faf7f2] px-5 py-6 text-center transition hover:border-black/25">
-          <ImagePlus className="h-5 w-5 text-black/45" />
-          <span className="text-sm font-medium text-black/65">Add photos</span>
-          <span className="text-xs leading-5 text-black/40">
+        <label className="flex cursor-pointer flex-col items-center justify-center gap-2 rounded-[1.5rem] border border-dashed border-[#80a0d0]/45 bg-[#faf7f2] px-5 py-6 text-center transition hover:border-[#205070]/45">
+          <ImagePlus className="h-5 w-5 text-[#80a0d0]" />
+          <span className="text-sm font-medium text-[#205070]/80">Add photos</span>
+          <span className="text-xs leading-5 text-[#80a0d0]">
             Upload up to {MAX_PHOTOS} photos, 10MB each.
           </span>
           <input
@@ -263,11 +263,11 @@ export function ContactForm({ calendlyUrl }: ContactFormProps) {
         {photos.length > 0 && (
           <div className="mt-3 grid gap-2">
             {photos.map((photo, index) => (
-              <div key={`${photo.name}-${photo.lastModified}`} className="flex items-center justify-between gap-3 rounded-2xl bg-black/[0.03] px-4 py-3 text-sm text-black/60">
+              <div key={`${photo.name}-${photo.lastModified}`} className="flex items-center justify-between gap-3 rounded-2xl bg-[#80a0d0]/15 px-4 py-3 text-sm text-[#205070]/75">
                 <span className="truncate">{photo.name}</span>
                 <button
                   type="button"
-                  className="rounded-full p-1 text-black/35 transition hover:bg-black/5 hover:text-black/60"
+                  className="rounded-full p-1 text-[#80a0d0] transition hover:bg-[#80a0d0]/20 hover:text-[#205070]/75"
                   aria-label={`Remove ${photo.name}`}
                   onClick={() => setPhotos((current) => current.filter((_, i) => i !== index))}
                 >
