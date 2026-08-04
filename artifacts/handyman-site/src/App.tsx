@@ -195,8 +195,13 @@ export default function App() {
         <div className="relative mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 md:px-6 md:py-5">
           <a href="#home" className="flex min-w-0 items-center gap-3" aria-label="Able Hands Contracting home">
             <img src={LOGO_IMAGE} alt="Able Hands Contracting" className="h-16 w-auto shrink-0 object-contain md:h-20" />
-            <span className="min-w-0 text-[12px] uppercase tracking-[0.16em] text-black/70 md:text-[15px] md:tracking-[0.18em]">
-              Able Hands Contracting
+            <span className="min-w-0">
+              <span className="block text-[12px] uppercase tracking-[0.16em] text-black/70 md:text-[15px] md:tracking-[0.18em]">
+                Able Hands Contracting
+              </span>
+              <span className="mt-1 block text-[10px] uppercase tracking-[0.16em] text-black/45 md:text-[11px]">
+                Capable. Reliable. Done.
+              </span>
             </span>
           </a>
           <div className="flex shrink-0 items-center gap-2">
