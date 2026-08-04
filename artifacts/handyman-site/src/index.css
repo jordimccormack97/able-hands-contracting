@@ -4,7 +4,7 @@
 :root {
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: #171717;
-  background: #f5f2ec;
+  background: #e7e7e7;
 }
 
 html {
@@ -14,7 +14,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  background: #f5f2ec;
+  background: #e7e7e7;
 }
 
 * {
