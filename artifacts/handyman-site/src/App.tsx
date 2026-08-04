@@ -274,13 +274,13 @@ export default function App() {
       </header>
 
       <main>
-        <section id="home" className="mx-auto flex min-h-[calc(100vh-7rem)] max-w-7xl items-center justify-center px-4 py-16 md:min-h-[calc(100vh-6rem)] md:px-6 md:py-24">
+        <section id="home" className="mx-auto flex min-h-[calc(100vh-7rem)] max-w-7xl items-center justify-center px-4 py-8 md:min-h-[calc(100vh-6rem)] md:px-6 md:py-20">
           <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-            <div className="flex flex-col items-center justify-center gap-5 sm:flex-row sm:text-left md:gap-7">
+            <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:text-left md:gap-6">
               <img
                 src={LOGO_IMAGE}
                 alt="Able Hands Contracting"
-                className="h-72 w-auto shrink-0 object-contain sm:h-80 md:h-[28rem] lg:h-[32rem]"
+                className="h-56 w-auto shrink-0 object-contain sm:h-72 md:h-[26rem] lg:h-[30rem]"
                 loading="eager"
               />
               <h1 className="text-4xl font-medium leading-[0.95] tracking-[-0.05em] sm:text-5xl md:text-6xl lg:text-[76px]">
@@ -289,7 +289,7 @@ export default function App() {
                 Contracting
               </h1>
             </div>
-            <div className="mt-8 flex w-full max-w-md flex-col gap-3 sm:flex-row sm:justify-center">
+            <div className="mt-6 flex w-full max-w-md flex-col gap-3 sm:flex-row sm:justify-center md:mt-8">
               <Button className="h-14 w-full text-base sm:w-auto" onClick={scrollToContact}>
                 Place Job Request
               </Button>
