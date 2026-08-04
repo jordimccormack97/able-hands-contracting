@@ -280,10 +280,10 @@ export default function App() {
               <img
                 src={LOGO_IMAGE}
                 alt="Able Hands Contracting"
-                className="h-64 w-auto shrink-0 object-contain sm:h-72 md:h-96 lg:h-[28rem]"
+                className="h-72 w-auto shrink-0 object-contain sm:h-80 md:h-[28rem] lg:h-[32rem]"
                 loading="eager"
               />
-              <h1 className="text-5xl font-medium leading-[0.95] tracking-[-0.05em] sm:text-6xl md:text-7xl lg:text-[96px]">
+              <h1 className="text-4xl font-medium leading-[0.95] tracking-[-0.05em] sm:text-5xl md:text-6xl lg:text-[76px]">
                 Able Hands
                 <br />
                 Contracting
