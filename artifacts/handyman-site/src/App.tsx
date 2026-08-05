@@ -38,7 +38,11 @@ const services = [
   "Room Measurement and Layout Planning",
   "Bulky Item Pickup & Delivery",
   "Deck Building/Repair",
+  "Fencing",
+  "Fence Repair",
+  "Staining",
   "Carpentry",
+  "Custom Carpentry",
 ];
 
 const work = [
