@@ -283,7 +283,7 @@ export default function App() {
             aria-hidden="true"
             loading="eager"
           />
-          <div className="absolute inset-0 -z-10 bg-[#e7e7e7]/75 backdrop-blur-[1px]" aria-hidden="true" />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#e7e7e7]/90 via-[#e7e7e7]/75 to-[#e7e7e7]/95 backdrop-blur-[1px]" aria-hidden="true" />
           <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
             <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:text-left md:gap-6">
               <img
