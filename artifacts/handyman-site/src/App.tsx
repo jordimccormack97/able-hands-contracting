@@ -59,6 +59,7 @@ const PHONE_LINK = "tel:6304871834";
 const EMAIL = "Jordi.mccormack97@gmail.com";
 const SERVICE_AREA = "RTP, Chapel Hill, Durham, Raleigh, Cary (Please inquire about locations outside those listed.)";
 const LOGO_IMAGE = `${import.meta.env.BASE_URL}images/able-hands-logo-trimmed.png`;
+const HERO_IMAGE = `${import.meta.env.BASE_URL}images/hero-worktable.jpg`;
 const ANA_IMAGE = `${import.meta.env.BASE_URL}images/ana-schardong.jpg`;
 const JORDI_IMAGE = `${import.meta.env.BASE_URL}images/jordi-mccormack-owner.jpg`;
 
@@ -274,7 +275,15 @@ export default function App() {
       </header>
 
       <main>
-        <section id="home" className="mx-auto flex min-h-[calc(100vh-7rem)] max-w-7xl items-start justify-center px-4 pb-8 pt-2 md:min-h-[calc(100vh-6rem)] md:px-6 md:pb-20 md:pt-4">
+        <section id="home" className="relative isolate flex min-h-[calc(100vh-7rem)] items-start justify-center overflow-hidden px-4 pb-8 pt-2 md:min-h-[calc(100vh-6rem)] md:px-6 md:pb-20 md:pt-4">
+          <img
+            src={HERO_IMAGE}
+            alt=""
+            className="absolute inset-0 -z-20 h-full w-full object-cover"
+            aria-hidden="true"
+            loading="eager"
+          />
+          <div className="absolute inset-0 -z-10 bg-[#e7e7e7]/75 backdrop-blur-[1px]" aria-hidden="true" />
           <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
             <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:text-left md:gap-6">
               <img
