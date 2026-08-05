@@ -205,7 +205,7 @@ export default function App() {
             </span>
           </a>
           <div className="flex shrink-0 items-center gap-2">
-            <Button asChild className="h-11 bg-[#205070] px-3 text-white hover:bg-[#204060] sm:px-4">
+            <Button asChild className="h-11 bg-[#1f8a4c] px-3 text-white hover:bg-[#18743f] sm:px-4">
               <a href={PHONE_LINK}>
                 <Phone className="h-4 w-4 sm:mr-2" />
                 <span className="sr-only sm:not-sr-only sm:inline">{PHONE}</span>
@@ -437,7 +437,7 @@ export default function App() {
                         {person.title}
                       </div>
                       <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                        <Button asChild className="w-full sm:w-auto bg-[#205070] text-white hover:bg-[#204060]">
+                        <Button asChild className="w-full sm:w-auto bg-[#1f8a4c] text-white hover:bg-[#18743f]">
                           <a href={PHONE_LINK}>Call {PHONE}</a>
                         </Button>
                       </div>
